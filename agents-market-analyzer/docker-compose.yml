@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  market-analyzer:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=development
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - API_DEBUG=true
+      - LOG_LEVEL=INFO
+    volumes:
+      - .:/app
+    depends_on:
+      - chatbot-ingestor-core
+
+  chatbot-ingestor-core:
+    image: chatbot-ingestor-core:latest
+    ports:
+      - "8001:8001"
+    environment:
+      - MARKET_ANALYZER_URL=http://market-analyzer:8000
+    volumes:
+      - ./data:/data
+
+networks:
+  default:
+    name: market-analyzer-network 

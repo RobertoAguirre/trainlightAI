@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Ingestor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Chatbot Ingestor</h1>
+            <div class="session-controls">
+                <select id="userRole">
+                    <option value="user">Usuario</option>
+                    <option value="admin">Administrador</option>
+                    <option value="analyst">Analista</option>
+                </select>
+                <button id="startSession">Nueva Sesión</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="chat-container">
+                <div id="chatMessages" class="messages"></div>
+                <div class="input-area">
+                    <input type="text" id="messageInput" placeholder="Escribe tu mensaje...">
+                    <button id="sendMessage">Enviar</button>
+                </div>
+            </div>
+
+            <div class="context-panel">
+                <h2>Contexto</h2>
+                <div id="contextDisplay" class="json-viewer"></div>
+                <div class="completion-status">
+                    <h3>Progreso</h3>
+                    <div id="completionBars"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
